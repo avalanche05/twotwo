@@ -1,1 +1,1 @@
-![alt text](press_release.png)
+![alt text](data/press_release.png)
