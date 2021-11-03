@@ -32,7 +32,7 @@ class SignIn(QDialog, SignInDialog):
 
         try:
             area = get_area(login, password)
-            Global.area = Area('Хуйнямуйня', Constant.NOT_STATED, Constant.NOT_STATED)
+            Global.area = Area('test', 'test', 'test')
             # Запускаем основное окно
             self.main_window.show()
             self.close()

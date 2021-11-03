@@ -9,4 +9,4 @@ class Main(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.area = Global.area
-        self.shopNameLabel.setText(self.area.title)
+        self.shopNameLabel.setText('oofuhih')

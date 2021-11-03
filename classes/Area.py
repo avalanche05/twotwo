@@ -4,5 +4,5 @@ class Area:
         self.login = login
         self.password = password
 
-    def get_values(self):
+    def get_values(self) -> str:
         return ', '.join(map(lambda x: f'"{x}"', (self.title, self.login, self.password)))
