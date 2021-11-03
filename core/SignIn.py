@@ -4,13 +4,14 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QApplication
 
 import Constant
-import Global
 from classes.Area import Area
 from core.SignUp import SignUp
 from frontend.SignInDialog import SignInDialog
 from exceptions.PasswordException import *
 from helpers.DatabaseHelper import get_area
 from core.Main import Main
+
+area = Area(Constant.NOT_STATED, Constant.NOT_STATED, Constant.NOT_STATED)
 
 
 class SignIn(QDialog, SignInDialog):
@@ -27,12 +28,12 @@ class SignIn(QDialog, SignInDialog):
         self.sign_up_dialog.show()
 
     def sign_in(self):
+        global area
         login = self.loginInput.text()
         password = self.passwordInput.text()
 
         try:
             area = get_area(login, password)
-            Global.area = Area('test', 'test', 'test')
             # Запускаем основное окно
             self.main_window.show()
             self.close()
