@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QDialog
 
-from frontend.SignUpDialog import SignUpDialog
+from frontend.Ui_SignUpDialog import SignUpDialog
 from helpers.DatabaseHelper import *
 
 
@@ -16,4 +16,4 @@ class SignUp(QDialog, SignUpDialog):
         password = hash_password(self.passwordInput.text())
 
         area = Area(title, login, password)
-        add_area_in_db(area)
+        add_area(area)
