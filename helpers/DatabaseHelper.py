@@ -73,3 +73,36 @@ def get_items(area_id: int) -> list:
     response = list(map(lambda raw: Item(*raw), result))
     connection.close()
     return response
+
+
+def update_item(barcode: str, area_id: int, value: int) -> None:
+    connection = sqlite3.connect(Constant.DATA_BASE_PATH)
+    cursor = connection.cursor()
+
+    request = f"""
+    UPDATE {Constant.ITEM}
+    SET {Constant.COUNT} = {Constant.COUNT} + {value}
+    WHERE {Constant.BARCODE} = "{barcode}" AND
+          {Constant.OWNER_ID} = {area_id}
+    """
+    cursor.execute(request)
+    connection.commit()
+    connection.close()
+
+
+def get_item_name(barcode: str, area_id: int) -> str:
+    connection = sqlite3.connect(Constant.DATA_BASE_PATH)
+    cursor = connection.cursor()
+
+    request = f"""
+                    SELECT {Constant.NAME} FROM {Constant.ITEM}
+                    WHERE {Constant.OWNER_ID} = "{area_id}" 
+                    AND    {Constant.BARCODE} = '{barcode}'
+                    """
+
+    result = cursor.execute(request).fetchone()
+    connection.close()
+    if result:
+        return result[0]
+    else:
+        return Constant.ITEM_NOT_FOUND

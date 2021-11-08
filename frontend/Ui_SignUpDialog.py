@@ -10,10 +10,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class SignUpDialog(object):
+class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Регистрация")
-        Dialog.setFixedSize(484, 526)
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(484, 526)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -63,15 +63,24 @@ class SignUpDialog(object):
         self.loginInput.setObjectName("loginInput")
         self.verticalLayout_3.addWidget(self.loginInput)
         self.signupButton = QtWidgets.QPushButton(Dialog)
-        self.signupButton.setGeometry(QtCore.QRect(170, 328, 139, 23))
+        self.signupButton.setGeometry(QtCore.QRect(170, 320, 139, 23))
         self.signupButton.setObjectName("signupButton")
+        self.visibleButton = QtWidgets.QPushButton(Dialog)
+        self.visibleButton.setGeometry(QtCore.QRect(315, 295, 20, 20))
+        self.visibleButton.setMinimumSize(QtCore.QSize(20, 20))
+        self.visibleButton.setMaximumSize(QtCore.QSize(20, 20))
+        self.visibleButton.setBaseSize(QtCore.QSize(20, 20))
+        self.visibleButton.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+"border: none;")
+        self.visibleButton.setText("")
+        self.visibleButton.setObjectName("visibleButton")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Регистрация"))
         self.label_2.setText(_translate("Dialog", "Регистрация"))
         self.label_3.setText(_translate("Dialog", "Название магазина"))
         self.label_4.setText(_translate("Dialog", "Пароль"))

@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("Ваши товары")
         MainWindow.resize(876, 622)
         MainWindow.setStyleSheet("background-color: rgb(255, 224, 207);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -36,14 +36,14 @@ class Ui_MainWindow(object):
         self.shopNameLabel.setFont(font)
         self.shopNameLabel.setObjectName("shopNameLabel")
         self.gridLayout.addWidget(self.shopNameLabel, 0, 1, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 32))
-        self.pushButton.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.transactionButton = QtWidgets.QPushButton(self.centralwidget)
+        self.transactionButton.setMinimumSize(QtCore.QSize(0, 32))
+        self.transactionButton.setMaximumSize(QtCore.QSize(120, 16777215))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 3, 1, 1, 1)
+        self.transactionButton.setFont(font)
+        self.transactionButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.transactionButton, 3, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 876, 20))
@@ -58,8 +58,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Ваши товары"))
         self.label.setText(_translate("MainWindow", "Товары в наличии:"))
         self.addItemButton.setText(_translate("MainWindow", "Добавить новый товар"))
         self.shopNameLabel.setText(_translate("MainWindow", "Название магазина"))
-        self.pushButton.setText(_translate("MainWindow", "Транзакция"))
+        self.transactionButton.setText(_translate("MainWindow", "Транзакция"))

@@ -8,10 +8,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from labels.ClickedLabel import ClickedLabel
+from labels import ClickedLabel
 
 
-class SignInDialog(object):
+class Ui_SignInDialog(object):
     def setupUi(self, SignInDialog):
         SignInDialog.setObjectName("SignInDialog")
         SignInDialog.resize(484, 526)
@@ -54,13 +54,21 @@ class SignInDialog(object):
         self.signInButton = QtWidgets.QPushButton(SignInDialog)
         self.signInButton.setGeometry(QtCore.QRect(200, 290, 91, 21))
         self.signInButton.setObjectName("signupButton")
+        self.toast = QtWidgets.QLabel(SignInDialog)
+        self.toast.setGeometry(QtCore.QRect(120, 320, 251, 30))
         self.label = QtWidgets.QLabel(SignInDialog)
         self.label.setGeometry(QtCore.QRect(190, 250, 121, 16))
         self.label.setObjectName("label")
-        self.signUpButton = ClickedLabel(SignInDialog)
+        self.signUpButton = ClickedLabel.ClickedLabel(SignInDialog)
         self.signUpButton.setGeometry(QtCore.QRect(180, 270, 141, 16))
         self.signUpButton.setStyleSheet("color: rgb(6, 64, 255);")
         self.signUpButton.setObjectName("signUpButton")
+        self.visibleButton = QtWidgets.QPushButton(SignInDialog)
+        self.visibleButton.setGeometry(QtCore.QRect(320, 225, 20, 20))
+        self.visibleButton.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+                                         "border: none;")
+        self.visibleButton.setText("")
+        self.visibleButton.setObjectName("visibleButton")
 
         self.retranslateUi(SignInDialog)
         QtCore.QMetaObject.connectSlotsByName(SignInDialog)
