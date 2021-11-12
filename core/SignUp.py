@@ -12,6 +12,9 @@ class SignUp(QDialog, Ui_Dialog):
         super().__init__()
         self.setupUi(self)
         self.signupButton.clicked.connect(self.sign_up)
+        self.titleInput.setPlaceholderText(Constant.TITLE_HINT)
+        self.loginInput.setPlaceholderText(Constant.LOGIN_HINT)
+        self.passwordInput.setPlaceholderText(Constant.PASSWORD_HINT)
         self.is_password_visible = False
         self.set_password_policy()
         self.visibleButton.clicked.connect(self.change_visible)
@@ -21,6 +24,43 @@ class SignUp(QDialog, Ui_Dialog):
         login = self.loginInput.text()
         password = hash_password(self.passwordInput.text())
 
+        is_error = False
+
+        if not login:
+            self.loginInput.setStyleSheet('border-radius: 2px;\n'
+                                          'border-width: 1px;\n'
+                                          'border-style: solid;\n'
+                                          'border-color: rgb(255, 20, 3);')
+            is_error = True
+        else:
+            self.loginInput.setStyleSheet('border-radius: 2px;\n'
+                                          'border-width: 1px;\n'
+                                          'border-style: solid;\n'
+                                          'border-color: rgb(0, 0, 0, 80);')
+        if not title:
+            self.titleInput.setStyleSheet('border-radius: 2px;\n'
+                                          'border-width: 1px;\n'
+                                          'border-style: solid;\n'
+                                          'border-color: rgb(255, 20, 3);')
+            is_error = True
+        else:
+            self.titleInput.setStyleSheet('border-radius: 2px;\n'
+                                          'border-width: 1px;\n'
+                                          'border-style: solid;\n'
+                                          'border-color: rgb(0, 0, 0, 80);')
+        if not self.passwordInput.text():
+            self.passwordInput.setStyleSheet('border-radius: 2px;\n'
+                                             'border-width: 1px;\n'
+                                             'border-style: solid;\n'
+                                             'border-color: rgb(255, 20, 3);')
+            is_error = True
+        else:
+            self.passwordInput.setStyleSheet('border-radius: 2px;\n'
+                                             'border-width: 1px;\n'
+                                             'border-style: solid;\n'
+                                             'border-color: rgb(0, 0, 0, 80);')
+        if is_error:
+            return
         area = Area(title, login, password)
         add_area(area)
         self.close()

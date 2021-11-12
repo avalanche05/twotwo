@@ -16,8 +16,6 @@ class Ui_SignInDialog(object):
         SignInDialog.setObjectName("SignInDialog")
         SignInDialog.resize(484, 526)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(SignInDialog.sizePolicy().hasHeightForWidth())
         SignInDialog.setSizePolicy(sizePolicy)
         SignInDialog.setStyleSheet("background-color: rgb(255, 224, 207);")

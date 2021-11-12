@@ -21,6 +21,8 @@ class SignIn(QDialog, Ui_SignInDialog):
         self.signUpButton.clicked.connect(self.open_sign_up)
         self.visibleButton.clicked.connect(self.change_visible)
         self.sign_up_dialog = SignUp()
+        self.loginInput.setPlaceholderText(Constant.LOGIN_HINT)
+        self.passwordInput.setPlaceholderText(Constant.PASSWORD_HINT)
         self.main_window = None
         self.is_password_visible = False
         self.set_password_policy()

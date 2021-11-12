@@ -90,12 +90,12 @@ def update_item(barcode: str, area_id: int, value: int) -> None:
     connection.close()
 
 
-def get_item_name(barcode: str, area_id: int) -> str:
+def get_item_name(barcode: str, area_id: int) -> tuple:
     connection = sqlite3.connect(Constant.DATA_BASE_PATH)
     cursor = connection.cursor()
 
     request = f"""
-                    SELECT {Constant.NAME} FROM {Constant.ITEM}
+                    SELECT {Constant.NAME}, {Constant.COUNT} FROM {Constant.ITEM}
                     WHERE {Constant.OWNER_ID} = "{area_id}" 
                     AND    {Constant.BARCODE} = '{barcode}'
                     """
@@ -103,6 +103,6 @@ def get_item_name(barcode: str, area_id: int) -> str:
     result = cursor.execute(request).fetchone()
     connection.close()
     if result:
-        return result[0]
+        return result
     else:
-        return Constant.ITEM_NOT_FOUND
+        return (Constant.ITEM_NOT_FOUND, -1)
